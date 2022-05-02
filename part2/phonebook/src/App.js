@@ -1,42 +1,10 @@
 import { useState } from 'react'
+import Filter from './components/Filter'
+import Persons from './components/Persons'
+import PersonForm from './components/PersonForm'
 
-const PersonForm = ({addName,newName,handleNameChange,newNumber,handleNumberChange}) => {
-  return (
-    <form onSubmit={addName}>
-        <div>
-          name: <input value={newName} onChange={handleNameChange}/>
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={handleNumberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-  )
-}
 
-const Filter = (props) => {
-  const filterValue=props.filterValue
-  const setFilterValue = props.setFilterValue
-  const persons=props.persons
-  const handleValueChange = (event) => {
-    setFilterValue(event.target.value)
-  }
-  return (
-    <div>
-       <p>filter shown with <input value={filterValue} onChange={handleValueChange} /></p> 
-    </div>
-  )
-}
 
-const Persons = ({newPersons}) => {
-   return (
-     <>
-     {newPersons.map(person=><p key={person.name}>{person.name} {person.number}</p>)}
-     </>
-   )
-}
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -69,9 +37,11 @@ const App = () => {
       console.log(persons);
       alert(`${newName} or ${newNumber} is already added to phonebook`)
       setNewName('')
+      setNewNumber('')
     }else{
       setPersons(persons.concat(addNewName))
     setNewName('')
+    setNewNumber('')
     }
   }
   const newArr = persons.filter(person => person.name.toLowerCase().includes(filterValue.toLowerCase()))
