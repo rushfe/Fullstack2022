@@ -25,7 +25,7 @@ const App = () => {
 
   const deletePerson=(id)=>{
     axios
-      .delete(`http://localhost:3001/persons/${id}`)
+      .delete(`/api/persons/${id}`)
   }
 
   const handleNameChange = (event) =>{
