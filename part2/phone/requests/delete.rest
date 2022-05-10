@@ -1,0 +1,18 @@
+DELETE http://localhost:3001/api/persons/6277685097060d7da2067d6d
+
+###
+POST  http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"alen tom",
+    "number":"13442423231"
+}
+
+###
+PUT http://localhost:3001/api/persons/627768ed97060d7da2067d72
+
+{
+    "name" : "bruce liang",
+    "number" : 6505303818
+}
